@@ -1,12 +1,12 @@
-#Testrail Reporter for Webdriver.io
+#Testrail Reporter for Webdriver.io using Cucumber
 
 Pushes test results into Testrail system.
-Fork from [mocha testrail reporter](https://www.npmjs.com/package/mocha-testrail-reporter)
+Fork from [wdio testrail reporter](https://www.npmjs.com/package/wdio-testrail-reporter)
 
 ## Installation
 
 ```shell
-$ npm install wdio-testrail-reporter --save-dev
+$ npm install wdio-testrail-cucumber-reporter --save-dev
 ```
 
 ## Usage
@@ -15,11 +15,11 @@ Ensure that your testrail installation API is enabled and generate your API keys
 Add reporter to wdio.conf.js:
 
 ```Javascript
-let WdioTestRailReporter = require('./packages/wdio-testrail-reporter/lib/wdio-testrail-reporter');
+let WdioCucumberTestRailReporter = require('./packages/wdio-testrail-cucumber-reporter/lib/wdio-testrail-cucumber-reporter');
 
 ...
 
-    reporters: ['spec', WdioTestRailReporter],
+    reporters: ['spec', WdioCucumberTestRailReporter],
     testRailsOptions: {
       domain: "yourdomain.testrail.net",
       username: "username",
@@ -31,11 +31,11 @@ let WdioTestRailReporter = require('./packages/wdio-testrail-reporter/lib/wdio-t
 ```
 
 
-Mark your mocha test names with ID of Testrail test cases. Ensure that your case ids are well distinct from test descriptions.
+Mark your cucumber scenarios with ID of Testrail test cases. Ensure that your case ids are well distinct from test descriptions.
  
 ```Javascript
-it("C123 C124 Authenticate with invalid user", . . .
-it("Authenticate a valid user C321", . . .
+Scenario: C123 C324 I should be able to navigate to the home page
+Scenario Outline: C123 C324 I should be able to navigate to the home page
 ```
 
 Only passed or failed tests will be published. Skipped or pending tests will not be published resulting in a "Pending" status in testrail test run.
@@ -57,7 +57,7 @@ Only passed or failed tests will be published. Skipped or pending tests will not
 ## Automatic creation of sections and cases
 You can use next command to generate sections/cases based on your tests in test real:
 ```shell
-node scripts/generate-cases.js {path_to_your_wdio.conf} {path_o_your_mail_test_folders}
+node scripts/generate-cases.js {path_to_your_wdio.conf} {path_to_your_mail_test_folders}
 ```
 Example:
 You have tests structure:
@@ -77,7 +77,7 @@ You have tests structure:
 ```
 Command:
 ```shell
-node node_modules/wdio-testrail-reporter/scripts/generate-cases.js test-project/wdio.conf.js test-project/tests
+node node_modules/wdio-testrail-cucumber-reporter/scripts/generate-cases.js test-project/wdio.conf.js test-project/tests
 ```
 will create in test rail:
 - section 'test-group-1'

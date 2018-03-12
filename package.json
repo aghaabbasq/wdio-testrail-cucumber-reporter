@@ -1,8 +1,8 @@
 {
-  "name": "wdio-testrail-reporter",
+  "name": "wdio-testrail-cucumber-reporter",
   "version": "1.1.5",
-  "description": "A Testrail reporter for webdriver.io including TestRail API basic library (fork from mocha-testrail-reporter)",
-  "main": "lib/wdio-testrail-reporter.js",
+  "description": "A Testrail reporter for webdriver.io using cucmber including TestRail API basic library (fork from wdio-testrail-reporter)",
+  "main": "lib/wdio-testrail-cucumber-reporter.js",
   "private": false,
   "keywords": [
     "spec",
@@ -11,20 +11,21 @@
     "webdriverio",
     "wdio",
     "wdio-plugin",
-    "wdio-reporter"
+    "wdio-reporter",
+    "cucumber"
   ],
   "author": {
-    "name": "Ivan Levantsov",
-    "email": "ivan.levantsov@oxynade.com"
+    "name": "Gavin Samuels",
+    "email": "gavin.samuels10@gmail.com"
   },
   "license": "MIT",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/oxynade/wdio-testrail-reporter.git"
+    "url": "https://github.com/gavin771/wdio-testrail-cucumber-reporter.git"
   },
   "bugs": {
-    "url": "https://github.com/oxynade/wdio-testrail-reporter/issues"
+    "url": "https://github.com/gavin771/wdio-testrail-cucumber-reporter/issues"
   },
   "dependencies": {
     "file": "^0.2.2",
