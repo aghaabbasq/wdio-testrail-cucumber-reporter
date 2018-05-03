@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>DocStrap Index</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.yeti.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="TestRail.html">TestRail</a></li><li><a href="WdioTestRailCucumberReporter.html">WdioTestRailCucumberReporter</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+    <section class="readme-section">
+        <article><h1>Testrail Reporter for Webdriver.io using Cucumber</h1><p>Pushes test results into Testrail system.<br>Fork from <a href="https://www.npmjs.com/package/wdio-testrail-reporter">wdio testrail reporter</a></p>
+<h2>Installation</h2><pre class="prettyprint source lang-shell"><code>$ npm install wdio-testrail-cucumber-reporter --save-dev</code></pre><h2>Usage</h2><p>Ensure that your testrail installation API is enabled and generate your API keys. See http://docs.gurock.com/</p>
+<p>Add reporter to wdio.conf.js:</p>
+<pre class="prettyprint source lang-Javascript"><code>let WdioCucumberTestRailReporter = require('./packages/wdio-testrail-cucumber-reporter/lib/wdio-testrail-cucumber-reporter');
+
+...
+
+    reporters: ['spec', WdioCucumberTestRailReporter],
+    testRailsOptions: {
+      domain: &quot;yourdomain.testrail.net&quot;,
+      username: &quot;username&quot;,
+      password: &quot;password&quot;,
+      projectId: 1,
+      suiteId: 1,
+      runName: &quot;My test run&quot;
+    }</code></pre><p>Mark your cucumber scenarios with ID of Testrail test cases. Ensure that your case ids are well distinct from test descriptions.</p>
+<pre class="prettyprint source lang-Javascript"><code>Scenario: C123 C324 I should be able to navigate to the home page
+Scenario Outline: C123 C324 I should be able to navigate to the home page</code></pre><p>Only passed or failed tests will be published. Skipped or pending tests will not be published resulting in a &quot;Pending&quot; status in testrail test run.</p>
+<h2>Options</h2><p><strong>domain</strong>: <em>string</em> domain name of your Testrail instance (e.g. for a hosted instance instance.testrail.net)</p>
+<p><strong>username</strong>: <em>string</em> user under which the test run will be created (e.g. jenkins or ci)</p>
+<p><strong>password</strong>: <em>string</em> password or API token for user</p>
+<p><strong>projectId</strong>: <em>number</em> projet number with which the tests are associated</p>
+<p><strong>suiteId</strong>: <em>number</em> suite number with which the tests are associated</p>
+<p><strong>assignedToId</strong>: <em>number</em> (optional) user id which will be assigned failed tests</p>
+<h2>Automatic creation of sections and cases</h2><p>You can use next command to generate sections/cases based on your tests in test real:</p>
+<pre class="prettyprint source lang-shell"><code>node scripts/generate-cases.js {path_to_your_wdio.conf} {path_to_your_mail_test_folders}</code></pre><p>Example:<br>You have tests structure:</p>
+<pre class="prettyprint source"><code>- node_modules
+- test-project
+-- wdio.conf.js
+-- tests
+--- test-group-1
+---- test-1.js
+--- test-group-2
+---- test-sub-group-1
+----- test-2.js
+----- test-3.js
+---- test-sub-groop-2
+----- test-4.js</code></pre><p>Command:</p>
+<pre class="prettyprint source lang-shell"><code>node node_modules/wdio-testrail-cucumber-reporter/scripts/generate-cases.js test-project/wdio.conf.js test-project/tests</code></pre><p>will create in test rail:</p>
+<ul>
+<li>section 'test-group-1'</li>
+<li>cases that are described in test-1.js inside section 'test-group-1'</li>
+<li>section 'test-group-2'</li>
+<li>subsection 'test-sub-group-1' inside section 'test-group-2'</li>
+<li>cases that are described in test-2.js inside subsection 'test-sub-group-1</li>
+<li>cases that are described in test-3.js inside subsection 'test-sub-group-1</li>
+<li>subsection 'test-sub-group-2' inside section 'test-group-2'</li>
+<li>cases that are described in test-4.js inside subsection 'test-sub-group-2</li>
+</ul>
+<p>also test files (test-1.js - test-4.js) will be updated: id of case will be added to it() function</p>
+<h2>References</h2><ul>
+<li>https://<a href="http://www.npmjs.com/package/mocha-testrail-reporter">www.npmjs.com/package/mocha-testrail-reporter</a></li>
+<li>http://webdriver.io/guide/reporters/customreporter.html</li>
+<li>http://docs.gurock.com/testrail-api2/start</li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	Webdriverio Cucumber TestRail Reporter
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+	
+		on Thu May 3rd 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-#Testrail Reporter for Webdriver.io using Cucumber
+# Testrail Reporter for Webdriver.io using Cucumber
 
 Pushes test results into Testrail system.
 Fork from [wdio testrail reporter](https://www.npmjs.com/package/wdio-testrail-reporter)
