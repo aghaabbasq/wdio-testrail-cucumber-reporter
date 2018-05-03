@@ -36,7 +36,7 @@
     "generate-cases": "node scripts/generate-cases.js",
     "lint": "./node_modules/.bin/eslint",
 		"test": "./node_modules/.bin/_mocha",
-		"docs": "./node_modules/.bin/jsdoc -d ./docs -c ./jsdoc.conf.json -t ./node_modules/ink-docstrap/template -R README.md -r ./lib"
+		"docs": "./node_modules/.bin/jsdoc -d ./docs -c ./jsdoc.conf.json -t ./node_modules/ink-docstrap/template -R README.md -r ./lib && open ./docs/index.html"
   },
   "devDependencies": {
     "chai": "^4.1.2",
