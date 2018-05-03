@@ -12,7 +12,7 @@
     "outputSourceFiles": true,
     "outputSourcePath": true,
     "systemName": "WDIO-Cucumber-TestRail",
-    "footer": "<strong class='copyright'><a target='_blank' href='https://www.npmjs.com/package/wdio-testrail-cucumber-reporter'>npm Module</a></strong>",
+    "footer": "<strong class='copyright' style='color:#cb3837 !important;'><a target='_blank' href='https://www.npmjs.com/package/wdio-testrail-cucumber-reporter'>npm module</a></strong>",
     "copyright": "Webdriverio Cucumber TestRail Reporter",
     "navType": "inline",
     "theme": "cosmo",
