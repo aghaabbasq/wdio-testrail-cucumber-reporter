@@ -26,8 +26,8 @@ const WdioCucumberTestRailReporter = require('wdio-testrail-cucumber-reporter');
       password: "password",
       projectId: 1,
       suiteId: 1,
-			runName: "My test run",
-			includeAll: true
+      runName: "My test run",
+      includeAll: true
     }
 ```
 
