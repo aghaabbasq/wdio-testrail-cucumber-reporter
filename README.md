@@ -56,6 +56,8 @@ Only passed or failed tests will be published. Skipped or pending tests will not
 
 **includeAll**: *boolean* should all of the tests from the test suite be added to the run ?
 
+**runName**: *string* Name that will be given to the run on TestRail
+
 **assignedToId**: *number* (optional) user id which will be assigned failed tests
 
 <hr/>
