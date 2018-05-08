@@ -54,6 +54,8 @@ Only passed or failed tests will be published. Skipped or pending tests will not
 
 **suiteId**: *array* suite numbers with which the tests are associated
 
+**includeAll**: *boolean* should all of the tests from the test suite be added to the run ?
+
 **assignedToId**: *number* (optional) user id which will be assigned failed tests
 
 <hr/>
