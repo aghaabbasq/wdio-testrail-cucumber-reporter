@@ -52,7 +52,7 @@ Only passed or failed tests will be published. Skipped or pending tests will not
 
 **projectId**: *number* project number with which the tests are associated
 
-**suiteId**: *array* suite numbers with which the tests are associated
+**suiteId**: *number|array* suite number with which the tests are associated. Use an array to create a test plan & a number to create a test run
 
 **includeAll**: *boolean* should all of the tests from the test suite be added to the run ?
 
@@ -66,7 +66,7 @@ Only passed or failed tests will be published. Skipped or pending tests will not
 
 ### Scenario A
 
-**You want to update a previous automation run (independent/in a test plan) without creating a new run.**
+**You want to update an existing automation run.**
 
 Add to your config object:
 ```
