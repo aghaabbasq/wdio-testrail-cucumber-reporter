@@ -83,14 +83,14 @@
  * @requires ./test-rail
  * @requires mocha-testrail-reporter/dist/lib/shared
  * @requires mocha-testrail-reporter/dist/lib/testrail.interface
- * @returns colors
+ * @returns chalk
  */
 
 const events = require('events');
 const TestRail = require('./test-rail');
 const titleToCaseIds = require('mocha-testrail-reporter/dist/lib/shared').titleToCaseIds;
 const Status = require('mocha-testrail-reporter/dist/lib/testrail.interface').Status;
-const colors = require('colors');
+const chalk = require('chalk');
 
 /**
  * Class representing Cucumber reporter data and methods
@@ -122,13 +122,15 @@ class WdioTestRailCucumberReporter extends events.EventEmitter {
 		this._fails = 0;
 		this._pending = 0;
 		this._out = [];
+		this.scenarioCount = 1;
+		this.featureCount = 1;
 		this.testRail = new TestRail(options);
 
 		this.on('suite:start', (suite) => {
 			if (suite.parent &amp;&amp; suite.parent != null) {
-				console.log(`Starting Scenario:`.underline.yellow `${suite.title}`);
+				console.log(`${chalk.cyan.underline('   '+this.featureCount++ + '. Scenario: ')} ${suite.title}`);
 			} else {
-				console.log(`Executing Feature:`.underline.blue `${suite.title}`);
+				console.log(`\n\n${chalk.yellow.underline(this.scenarioCount++ +'. Feature: ')} ${suite.title}`);
 			}
 		});
 
