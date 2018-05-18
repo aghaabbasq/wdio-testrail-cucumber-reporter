@@ -28,15 +28,15 @@
     "url": "https://github.com/gavin771/wdio-testrail-cucumber-reporter/issues"
   },
   "dependencies": {
+    "colors": "^1.2.5",
     "file": "^0.2.2",
     "mocha-testrail-reporter": "^1.0.12",
     "sync-request": "^4.1.0"
   },
   "scripts": {
-    "generate-cases": "node scripts/generate-cases.js",
     "lint": "./node_modules/.bin/eslint",
-		"test": "./node_modules/.bin/_mocha",
-		"docs": "./node_modules/.bin/jsdoc -d ./docs -c ./jsdoc.conf.json -t ./node_modules/ink-docstrap/template -R README.md -r ./lib && open ./docs/index.html"
+    "test": "./node_modules/.bin/_mocha",
+    "docs": "./node_modules/.bin/jsdoc -d ./docs -c ./jsdoc.conf.json -t ./node_modules/ink-docstrap/template -R README.md -r ./lib && open ./docs/index.html"
   },
   "devDependencies": {
     "chai": "^4.1.2",
