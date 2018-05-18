@@ -28,7 +28,7 @@
     "url": "https://github.com/gavin771/wdio-testrail-cucumber-reporter/issues"
   },
   "dependencies": {
-    "colors": "^1.2.5",
+    "chalk": "^2.4.1",
     "file": "^0.2.2",
     "mocha-testrail-reporter": "^1.0.12",
     "sync-request": "^4.1.0"
