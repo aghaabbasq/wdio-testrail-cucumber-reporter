@@ -31,7 +31,8 @@
     "chalk": "^2.4.1",
     "file": "^0.2.2",
     "mocha-testrail-reporter": "^1.0.12",
-    "sync-request": "^4.1.0"
+    "sync-request": "^4.1.0",
+    "mocha": "^5.2.0"
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint",
@@ -39,12 +40,11 @@
     "docs": "./node_modules/.bin/jsdoc -d ./docs -c ./jsdoc.conf.json -t ./node_modules/ink-docstrap/template -R README.md -r ./lib && open ./docs/index.html"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
+    "chai": "^4.2.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-import": "^2.14.0",
     "ink-docstrap": "^1.3.2",
-    "jsdoc": "^3.5.5",
-    "mocha": "^5.1.1"
+    "jsdoc": "^3.5.5"
   }
 }
