@@ -1,50 +1,50 @@
 {
-  "name": "wdio-testrail-cucumber-reporter",
-  "version": "0.4.1",
-  "description": "A Testrail reporter for webdriver.io using cucumber including TestRail API basic library (fork from wdio-testrail-reporter)",
-  "main": "lib/wdio-testrail-cucumber-reporter.js",
-  "private": false,
-  "keywords": [
-    "spec",
-    "testrail",
-    "reporter",
-    "webdriverio",
-    "wdio",
-    "wdio-plugin",
-    "wdio-reporter",
-    "cucumber"
-  ],
-  "author": {
-    "name": "Gavin Samuels",
-    "email": "gavin.samuels10@gmail.com"
-  },
-  "license": "MIT",
-  "readmeFilename": "README.md",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gavin771/wdio-testrail-cucumber-reporter.git"
-  },
-  "bugs": {
-    "url": "https://github.com/gavin771/wdio-testrail-cucumber-reporter/issues"
-  },
-  "dependencies": {
-    "chalk": "^2.4.1",
-    "file": "^0.2.2",
-    "mocha-testrail-reporter": "^1.0.12",
-    "sync-request": "^4.1.0",
-    "mocha": "^5.2.0"
-  },
-  "scripts": {
-    "lint": "./node_modules/.bin/eslint",
-    "test": "./node_modules/.bin/_mocha",
-    "docs": "./node_modules/.bin/jsdoc -d ./docs -c ./jsdoc.conf.json -t ./node_modules/ink-docstrap/template -R README.md -r ./lib && open ./docs/index.html"
-  },
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "ink-docstrap": "^1.3.2",
-    "jsdoc": "^3.5.5"
-  }
+    "name": "wdio-testrail-cucumber-reporter",
+    "version": "0.4.1",
+    "description": "A Testrail reporter for webdriver.io using cucumber including TestRail API basic library (fork from wdio-testrail-reporter)",
+    "main": "lib/wdio-testrail-cucumber-reporter.js",
+    "private": false,
+    "keywords": [
+        "spec",
+        "testrail",
+        "reporter",
+        "webdriverio",
+        "wdio",
+        "wdio-plugin",
+        "wdio-reporter",
+        "cucumber"
+    ],
+    "author": {
+        "name": "Gavin Samuels",
+        "email": "gavin.samuels10@gmail.com"
+    },
+    "license": "MIT",
+    "readmeFilename": "README.md",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Artemon-line/wdio-testrail-cucumber-reporter"
+    },
+    "bugs": {
+        "url": "https://github.com/Artemon-line/wdio-testrail-cucumber-reporter/issues"
+    },
+    "dependencies": {
+        "chalk": "^2.4.2",
+        "file": "^0.2.2",
+        "mocha-testrail-reporter": "^1.0.12",
+        "sync-request": "^6.1.0",
+        "mocha": "^6.1.4"
+    },
+    "scripts": {
+        "lint": "./node_modules/.bin/eslint",
+        "test": "./node_modules/.bin/_mocha",
+        "docs": "./node_modules/.bin/jsdoc -d ./docs -c ./jsdoc.conf.json -t ./node_modules/ink-docstrap/template -R README.md -r ./lib && open ./docs/index.html"
+    },
+    "devDependencies": {
+        "chai": "^4.2.0",
+        "eslint": "^4.19.1",
+        "eslint-config-airbnb-base": "^12.1.0",
+        "eslint-plugin-import": "^2.14.0",
+        "ink-docstrap": "^1.3.2",
+        "jsdoc": "^3.5.5"
+    }
 }

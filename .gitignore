@@ -1,4 +1,4 @@
-node_modules
+node_modules/
 node-debug*
 .c9/
 *.iml
@@ -6,3 +6,4 @@ node-debug*
 npm-debug.log
 dist
 .DS_Store
+.vscode

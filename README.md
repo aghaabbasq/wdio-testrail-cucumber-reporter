@@ -1,7 +1,7 @@
-# TestRail Reporter for Webdriver.io using Cucumber
+# Cucumber TestRail Reporter for Webdriver.io 
 
 Pushes test results into TestRail system.
-Fork from [wdio testrail reporter](https://www.npmjs.com/package/wdio-testrail-reporter)
+Fork from [wdio-testrail-cucumber-reporter](https://github.com/gavin771/wdio-testrail-cucumber-reporter/issues)
 
 ## Installation
 
@@ -34,8 +34,12 @@ const WdioCucumberTestRailReporter = require('wdio-testrail-cucumber-reporter');
 Mark your cucumber scenarios with ID of TestRail test cases. Ensure that your case ids are well distinct from test descriptions.
 
 ```Javascript
-Scenario: C123 C324 I should be able to navigate to the home page
-Scenario Outline: C123 C324 I should be able to navigate to the home page
+@C123 
+@C324 
+Scenario: I should be able to navigate to the home page
+
+@C123 @C324 
+Scenario Outline: I should be able to navigate to the home page
 ```
 
 Only passed or failed tests will be published. Skipped or pending tests will not be published resulting in a "Pending" status in TestRail test run.
@@ -111,12 +115,9 @@ suiteId: [id1,id2,id3...],
 updatePlan: planId
 ```
 
-## Feel free to submit any bugs/issues/suggestions
-
-[https://github.com/gavin771/wdio-testrail-cucumber-reporter/issues](https://github.com/gavin771/wdio-testrail-cucumber-reporter/issues)
-
 ## References
 
+- https://github.com/gavin771/wdio-testrail-cucumber-reporter/issues
 - https://www.npmjs.com/package/mocha-testrail-reporter
 - http://webdriver.io/guide/reporters/customreporter.html
 - http://docs.gurock.com/testrail-api2/start
