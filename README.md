@@ -28,6 +28,7 @@ const WdioCucumberTestRailReporter = require('wdio-testrail-cucumber-reporter');
       suiteId: 1,
       runName: "My test run",
       includeAll: true
+      customStatuses: { "Passed": 1, "Pending": 2, "Failed": 6 }
     }
 ```
 
@@ -63,6 +64,8 @@ Only passed or failed tests will be published. Skipped or pending tests will not
 **runName**: *string* Name that will be given to the run on TestRail
 
 **assignedToId**: *number* (optional) user id which will be assigned failed tests
+
+**customStatuses**: *{ "Passed": number, "Pending": number, "Failed": number } (optional) custom statuses ids
 
 <hr/>
 
