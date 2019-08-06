@@ -43,14 +43,16 @@ Mark your cucumber scenarios with ID of TestRail test cases. Ensure that your ca
 ```
 Scenario: I should be able to navigate to the home page
 """
-@C122
+C122
+This is descriptions
 """
 
 ...
 
 Scenario Outline: I should be able to navigate to the home page
 """
-@C123 @C124 @C125
+C123 C124 C125
+This scenario contains 3 examples
 """
 ```
 
