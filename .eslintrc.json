@@ -1,0 +1,37 @@
+{
+    "extends": "airbnb-base",
+    "rules": {
+        "semi": ["error", "never"],
+        "quotes": ["off", "double"],
+        "no-undef": "off",
+        "indent": ["error", 4],
+        "class-methods-use-this": "off",
+        "no-empty-function": "off",
+        "no-useless-constructor": "off", 
+        "prefer-destructuring": ["error", {
+          "array": false,
+          "object": false
+        }],
+        "func-names": "off",
+        "max-len": "off",
+        "no-restricted-syntax": "off",
+        "no-underscore-dangle": "off",
+        "no-console": "off",
+        "no-unused-vars": "off",
+        "consistent-return": "off",
+        "no-cond-assign": "warn",
+        "no-mixed-operators": [
+          "error",
+          {
+              "groups": [
+                  ["*", "/", "%", "**"],
+                  ["&", "|", "^", "~", "<<", ">>", ">>>"],
+                  ["==", "!=", "===", "!==", ">", ">=", "<", "<="],
+                  ["&&", "||"],
+                  ["in", "instanceof"]
+              ],
+              "allowSamePrecedence": true
+          }
+      ]
+    }
+}
