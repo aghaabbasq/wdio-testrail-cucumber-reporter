@@ -1,13 +1,14 @@
 # Cucumber TestRail Reporter for Webdriver.io 
 
 Pushes test results into TestRail system.
-Fork from [wdio-testrail-cucumber-reporter](https://github.com/gavin771/wdio-testrail-cucumber-reporter/issues)
+Fork from [wdio-testrail-cucumber-reporter](https://github.com/Artemon-line/wdio-testrail-cucumber-reporter)
 
-## Installation
 
-```shell
- npm i wdio-testrail-cucumber-reporter -D
-```
+## Changed
+
+- Only 1 result is published for per scenerio, not per step
+- Update existing test plan instead
+- Use independent case ID for `Scenario Outline`s
 
 ## Usage
 Ensure that your TestRail installation API is enabled and generate your API keys. See http://docs.gurock.com/
@@ -23,28 +24,37 @@ const WdioCucumberTestRailReporter = require('wdio-testrail-cucumber-reporter');
     testRailsOptions: {
       domain: "yourdomain.testrail.net",
       username: "username",
-      password: "password",
+      password: "apiPassword",
       projectId: 1,
       suiteId: 1,
+      sectionId: 1,
+      updatePlan: 1,
+      includeAll: false,
+
+      // options used in TestRail run name
       runName: "My test run",
-      includeAll: true
+      time: "run time"         // I use `moment().format(" YYYY-MM-DD HH:mm")`
+      platform: "Windows 10"
     }
 ```
 
 Mark your cucumber scenarios with ID of TestRail test cases. Ensure that your case ids are well distinct from test descriptions.
 
-```Javascript
-@C123 
-@C324 
+```
 Scenario: I should be able to navigate to the home page
+"""
+@C122
+"""
 
-@C123 @C324 
+...
+
 Scenario Outline: I should be able to navigate to the home page
+"""
+@C123 @C124 @C125
+"""
 ```
 
-Only passed or failed tests will be published. Skipped or pending tests will not be published resulting in a "Pending" status in TestRail test run.
-
-[JSDocs can be found here](https://gavin771.github.io/wdio-testrail-cucumber-reporter/)
+Only passed or failed tests will be published.
 
 ## Options
 
@@ -56,68 +66,23 @@ Only passed or failed tests will be published. Skipped or pending tests will not
 
 **projectId**: *number* project number with which the tests are associated
 
-**suiteId**: *number|array* suite number with which the tests are associated. Use an array to create a test plan & a number to create a test run
+**sectionId** *number* section number with which the tests are associated
+
+**suiteId**: *number* suite number with which the tests are associated
+
+**updatePlan**: *number* Plan ID to update
 
 **includeAll**: *boolean* should all of the tests from the test suite be added to the run ?
 
 **runName**: *string* Name that will be given to the run on TestRail
 
-**assignedToId**: *number* (optional) user id which will be assigned failed tests
+**time**: *string* Specify the run datetime to TestRail run name
 
-<hr/>
+**platform**: *string* Specify the platform to TestRail run name
 
-## Advanced Options
-
-### Scenario A
-
-**You want to update an existing automation run.**
-
-Add to your config object:
-```
-updateRun: runId
-```
-Cannot be used with Scenario C or D
-
-<hr/>
-
-### Scenario B
-
-**You want to execute an automation run that does not include all tests in the suite, just the ones in your automation.**
-
-Add to your config object:
-```
-includeAll: false
-```
-Can be used with any configuration
-
-<hr/>
-
-### Scenario C
-
-**You want to create a test plan; test runs that pull cases from multiple suites.**
-
-Add to your config object:
-```
-suiteId: [id1,id2,id3...]
-```
-Can be used with scenario D
-
-<hr/>
-
-### Scenario D
-
-**You want to update the test results in your test plan without creating a new test plan.**
-
-Add to your config object:
-
-```Javascript
-suiteId: [id1,id2,id3...],
-updatePlan: planId
-```
-
-## References
+## See also
 
 - https://github.com/gavin771/wdio-testrail-cucumber-reporter/issues
 - https://www.npmjs.com/package/mocha-testrail-reporter
-- http://webdriver.io/guide/reporters/customreporter.html
+- http://v4.webdriver.io/guide/reporters/customreporter.html
 - http://docs.gurock.com/testrail-api2/start
