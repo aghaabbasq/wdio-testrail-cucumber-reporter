@@ -27,7 +27,6 @@ const WdioCucumberTestRailReporter = require('wdio-testrail-cucumber-reporter');
       password: "apiPassword",
       projectId: 1,
       suiteId: 1,
-      sectionId: 1,
       updatePlan: 1,
       includeAll: false,
 
@@ -67,8 +66,6 @@ Only passed or failed tests will be published.
 **password**: *string* password or API token for user
 
 **projectId**: *number* project number with which the tests are associated
-
-**sectionId** *number* section number with which the tests are associated
 
 **suiteId**: *number* suite number with which the tests are associated
 
